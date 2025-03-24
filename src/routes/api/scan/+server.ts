@@ -102,7 +102,7 @@ export const POST: RequestHandler = async ({ request }) => {
         // Verify DOB via FastAPI
         let result: { authStatus: boolean };
 		try {
-			const response = await fetchWithTimeout("http://127.0.0.1:3000/dob", {
+			const response = await fetchWithTimeout("https://mosip-sdk-api.fly.dev/dob/", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({ uin, dob: dobMOSIP })
