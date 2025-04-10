@@ -27,7 +27,7 @@
 					<FooterLink href="/">Home</FooterLink>
 					<FooterLink href="/generate-id">Create</FooterLink>
 					<FooterLink href="/view-id">View</FooterLink>
-					<FooterIcon href="https://github.com/ZenoxisIV/CS-199-MasquerAge" target="_blank">
+					<FooterIcon href="https://github.com/ZenoxisIV/MasquerAge" target="_blank">
 						<GithubSolid class="w-6 h-6 mr-4 text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white" />
 					</FooterIcon>
 				</FooterLinkGroup>
