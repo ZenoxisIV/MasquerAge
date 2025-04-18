@@ -21,7 +21,14 @@ const numberOfQRCodes = parseInt(process.argv[2], 10) || 5;
 
 const generateFakeUser = () => {
     return {
-        bd: faker.date.birthdate({ min: 1970, max: 2000, mode: 'year' }).toISOString().split('T')[0],
+        bd: faker.helpers.weightedArrayElement(
+            [
+                // 96% chance for successful authentication
+                { value: "1992-04-29", weight: 48 },
+                { value: "1985-04-29", weight: 48 },
+                { value: faker.date.birthdate({ min: 1970, max: 2000, mode: 'year' }).toISOString().split('T')[0], weight: 4 } // 4% chance for failure
+            ]
+        ),
         bf: null,
         bt: faker.helpers.arrayElement(["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"]),
         iat: faker.date.between({ from: '2000-01-01T00:00:00Z', to: new Date() }).getTime() / 1000, // Random UNIX timestamp
