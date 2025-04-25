@@ -23,10 +23,10 @@ const generateFakeUser = () => {
     return {
         bd: faker.helpers.weightedArrayElement(
             [
-                // 96% chance for successful authentication
-                { value: "1992-04-29", weight: 48 },
-                { value: "1985-04-29", weight: 48 },
-                { value: faker.date.birthdate({ min: 1970, max: 2000, mode: 'year' }).toISOString().split('T')[0], weight: 4 } // 4% chance for failure
+                // 98% chance for successful authentication
+                { value: "1992-04-29", weight: 49 },
+                { value: "1985-04-29", weight: 49 },
+                { value: faker.date.birthdate({ min: 1970, max: 2000, mode: 'year' }).toISOString().split('T')[0], weight: 4 } // 2% chance for failure
             ]
         ),
         bf: null,
@@ -43,11 +43,11 @@ const generateFakeUser = () => {
         pcn: faker.helpers.weightedArrayElement(
             [
                 // 80% chance for successful authentication
-                { value: "3802993748914180", weight: 20 },
-                { value: "3406730401296927", weight: 20 },
-                { value: "1128457229699457", weight: 20 },
-                { value: "9328400871640646", weight: 20 },
-                { value: faker.string.numeric(16), weight: 20 } // 20% chance for failure
+                { value: "3802993748914180", weight: 24.5 },
+                { value: "3406730401296927", weight: 24.5 },
+                { value: "1128457229699457", weight: 24.5 },
+                { value: "9328400871640646", weight: 24.5 },
+                { value: faker.string.numeric(16), weight: 2 } // 2% chance for failure
             ]
         ),
         pob: faker.location.city().toUpperCase(),

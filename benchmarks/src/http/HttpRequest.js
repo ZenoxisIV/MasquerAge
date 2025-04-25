@@ -1,5 +1,5 @@
 import { performance } from 'perf_hooks';
-import https from 'https';
+import http from 'http';
 
 export default class HttpRequest {
     constructor(targetUrl, timeout = 5000) {
@@ -20,7 +20,7 @@ export default class HttpRequest {
         };
 
         if (method === 'POST' && body) {
-            const bodyString = JSON.stringify(body);
+            const bodyString = JSON.stringify({ data: JSON.stringify(body) });
             headers['Content-Type'] = 'application/json';
             headers['Content-Length'] = Buffer.byteLength(bodyString);
         }
@@ -33,7 +33,7 @@ export default class HttpRequest {
         try {
             const start = performance.now();
             const response = await new Promise((resolve, reject) => {
-                const req = https.request(this.targetUrl, options, (res) => {
+                const req = http.request(this.targetUrl, options, (res) => {
                     const end = performance.now();
                     let responseSize = 0;
                     let responseData = '';
@@ -71,7 +71,7 @@ export default class HttpRequest {
                 timings.data_sent = headersSize + bodySize;
 
                 if (method === 'POST' && body) {
-                    req.write(JSON.stringify(body));
+                    req.write(JSON.stringify({ data: JSON.stringify(body) }));
                 }
 
                 req.end();

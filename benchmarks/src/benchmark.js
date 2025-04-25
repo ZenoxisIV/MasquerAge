@@ -1,9 +1,9 @@
 import MasquerAgeLoadTest from './core/LoadEngine.js';
 
 const options = {
-    targetUrl: 'https://jsonplaceholder.typicode.com/posts',
+    targetUrl: 'http://20.2.8.144/api/scan',
     vus: 1,
-    duration: 5 * 1000,
+    duration: 24 * 60 * 60 * 1000,
     method: 'POST',
     logLevel: 'info'
 }

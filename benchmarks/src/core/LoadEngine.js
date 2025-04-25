@@ -52,9 +52,14 @@ export default class MasquerAgeLoadTest {
             try {
                 while (this.iterations ? completedRequests < this.iterations : Date.now() < endTime) {
                     if (this.iterations && completedRequests >= this.iterations) break;
-                    
-                    const result = await this.httpRequest.sendRequest(this.method, this.body ? this.body : decodeQRCode(clearLogs));
+                    let qrBody = await decodeQRCode(clearLogs);
+                    const result = await this.httpRequest.sendRequest(this.method, qrBody);
                     clearLogs = false;
+
+                    if (result && result.status === 502) {
+                        continue;
+                    }
+
                     results.push(result);
                     completedRequests++;
                 }
@@ -174,8 +179,8 @@ export default class MasquerAgeLoadTest {
         console.log(httpReqTable.toString() + '\n');
         console.log(dataTable.toString() + '\n');
         console.log(processDecoderLogs());
-        console.log(processNodeLogs());
-        console.log(processAuthLogs());
+        // console.log(processNodeLogs());
+        // console.log(processAuthLogs());
     }
 
     colorize(value, color) {
