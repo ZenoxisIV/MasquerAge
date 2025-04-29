@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import logo from '$lib/images/MasquerAge.png';
+	import logo from '$lib/images/MasquerAge-512x512.png';
 	import { Navbar, NavBrand, NavLi, NavUl, NavHamburger } from 'flowbite-svelte';
 	$: activeUrl = $page.url.pathname;
 </script>

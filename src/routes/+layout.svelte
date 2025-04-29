@@ -1,5 +1,5 @@
 <script lang="ts">
-	import logo from '$lib/images/MasquerAge.png';
+	import logo from '$lib/images/MasquerAge-512x512.png';
 	import { DarkMode, Footer, FooterCopyright, FooterLink, FooterLinkGroup, FooterBrand, FooterIcon } from 'flowbite-svelte';
 	import { GithubSolid } from 'flowbite-svelte-icons';
 	import { page } from '$app/state';
