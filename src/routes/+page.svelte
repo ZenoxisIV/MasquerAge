@@ -69,15 +69,15 @@
 	<div class="flex justify-center mb-4">
 		<ButtonGroup class="*:ring-primary-700! pt-5 pb-5 flex w-full max-w-md">
 			<Button 
-				class="flex-1 px-6 py-3 text-sm sm:text-md"
-				on:click={() => currentView = "qr"}
+				class="flex-1 py-3 text-sm sm:text-md"
+				onclick={() => currentView = "qr"}
 			>
 				<QrCodeOutline class="w-5 h-5 sm:w-6 sm:h-6 me-2" />
 				Scan QR Code
 			</Button>
 			<Button 
-				class="flex-1 px-6 py-3 text-sm sm:text-md"
-				on:click={() => currentView = "form"}
+				class="flex-1 py-3 text-sm sm:text-md"
+				onclick={() => currentView = "form"}
 			>
 				<ProfileCardOutline class="w-5 h-5 sm:w-6 sm:h-6 me-2" />
 				Enter MOSIP ID
@@ -100,14 +100,14 @@
 					</div>
 					<div class="mt-4 flex items-center gap-2 text-lg font-normal text-black dark:text-gray-400">
 						<CheckCircleSolid class="w-6 h-6 text-green-600 dark:text-green-400 stroke-white stroke-2" />
-						<span class="text-xl">This person is 35 or older.</span>
+						<span class="text-xl">This person is 18 or older.</span>
 					</div>
 				</div>
 
 			{:else if rejectedPrompt}
 				<CloseCircleSolid class="mx-auto mb-4 text-red-600 w-36 h-36 dark:text-red-400" />
 				<h3 class="text-xl font-normal text-black dark:text-gray-400">
-					This person is below 35.
+					This person is below 18.
 				</h3>
 			{:else if invalidPrompt}
 				<ExclamationCircleSolid class="mx-auto mb-4 text-yellow-400 w-36 h-36 dark:text-yellow-400" />
@@ -127,7 +127,7 @@
 			<QRScanner bind:result={qrResult} />
 		</section>
 	{:else}
-		<Card class="mx-auto mt-6 mb-6" size="sm" border={false}>
+		<Card class="mx-auto mt-6 mb-6 p-6" size="sm">
 			<form class="flex flex-col space-y-6" on:submit|preventDefault={validateID}>
 				<h3 class="text-xl font-medium text-gray-900 dark:text-white text-center">MOSIP Anonymous Age Verification</h3>
 				<Label class="space-y-2">
@@ -142,7 +142,7 @@
 			</form>
 		</Card>
 
-		<Card class="mx-auto mt-6 mb-6" size="sm" border={false}>
+		<Card class="mx-auto mt-6 mb-6 p-6" size="sm">
 			<div class="text-normal text-center font-medium text-gray-500 dark:text-gray-300">
 				New to MasquerAge? <a href="/generate-id" class="text-primary-700 hover:underline dark:text-primary-500"> Create a MOSIP ID </a>
 			</div>
