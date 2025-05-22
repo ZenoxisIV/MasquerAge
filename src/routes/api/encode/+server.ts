@@ -57,7 +57,7 @@ export const GET: RequestHandler = async ({ url }) => {
         // Verify DOB via FastAPI
         let result: { authStatus: boolean, responseTime: string, errorMessages: string};
         try {
-            const response = await fetchWithTimeout(FASTAPI_URL, {
+            const response = await fetchWithTimeout(`${FASTAPI_URL}/dob/`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ uin, dob: dobMOSIP })
