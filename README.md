@@ -1,38 +1,37 @@
-# sv
+## Setup
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
+1. Install dependencies with pnpm:
 ```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+pnpm install
+# or the short alias
+pnpm i
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
+2. Copy environment example:
 ```bash
-npm run dev
+cp .env.example .env
+```
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+Adjust values in `.env` as needed. Note that it needs a `DATABASE_URL` and `FASTAPI_URL` to work.
+
+## Developing
+1. Start a development server:
+```bash
+pnpm run dev
+# or run the script directly
+pnpm dev
+
+# open in a browser (if supported by your script)
+pnpm run dev -- --open
 ```
 
 ## Building
-
-To create a production version of your app:
-
+1. Create a production build:
 ```bash
-npm run build
+pnpm run build
 ```
 
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+2. Preview the production build:
+```bash
+pnpm run preview
+```
